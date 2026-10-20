@@ -10,33 +10,73 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as FuncionarioRouteImport } from './routes/funcionario'
+import { Route as InstrutorRouteImport } from './routes/instrutor'
+import { Route as LiderRouteImport } from './routes/lider'
+import { Route as RhRouteImport } from './routes/rh'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FuncionarioRoute = FuncionarioRouteImport.update({
+  id: '/funcionario',
+  path: '/funcionario',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InstrutorRoute = InstrutorRouteImport.update({
+  id: '/instrutor',
+  path: '/instrutor',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LiderRoute = LiderRouteImport.update({
+  id: '/lider',
+  path: '/lider',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RhRoute = RhRouteImport.update({
+  id: '/rh',
+  path: '/rh',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/funcionario': typeof FuncionarioRoute
+  '/instrutor': typeof InstrutorRoute
+  '/lider': typeof LiderRoute
+  '/rh': typeof RhRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/funcionario': typeof FuncionarioRoute
+  '/instrutor': typeof InstrutorRoute
+  '/lider': typeof LiderRoute
+  '/rh': typeof RhRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/funcionario': typeof FuncionarioRoute
+  '/instrutor': typeof InstrutorRoute
+  '/lider': typeof LiderRoute
+  '/rh': typeof RhRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/funcionario' | '/instrutor' | '/lider' | '/rh'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/funcionario' | '/instrutor' | '/lider' | '/rh'
+  id: '__root__' | '/' | '/funcionario' | '/instrutor' | '/lider' | '/rh'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  FuncionarioRoute: typeof FuncionarioRoute
+  InstrutorRoute: typeof InstrutorRoute
+  LiderRoute: typeof LiderRoute
+  RhRoute: typeof RhRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +88,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/funcionario': {
+      id: '/funcionario'
+      path: '/funcionario'
+      fullPath: '/funcionario'
+      preLoaderRoute: typeof FuncionarioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/instrutor': {
+      id: '/instrutor'
+      path: '/instrutor'
+      fullPath: '/instrutor'
+      preLoaderRoute: typeof InstrutorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lider': {
+      id: '/lider'
+      path: '/lider'
+      fullPath: '/lider'
+      preLoaderRoute: typeof LiderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rh': {
+      id: '/rh'
+      path: '/rh'
+      fullPath: '/rh'
+      preLoaderRoute: typeof RhRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  FuncionarioRoute: FuncionarioRoute,
+  InstrutorRoute: InstrutorRoute,
+  LiderRoute: LiderRoute,
+  RhRoute: RhRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
