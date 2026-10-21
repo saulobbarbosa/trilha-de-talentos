@@ -1,0 +1,24 @@
+# Stack validada em Windows 11 + Python 3.12 (CPU)
+fastapi==0.156.4
+uvicorn[standard]==0.54.0
+sqlalchemy==2.1.5
+pydantic==2.14.1
+pydantic-settings==2.16.1
+python-multipart==0.0.32
+argon2-cffi==25.1.0
+itsdangerous==2.2.0
+reportlab==5.0.1
+qrcode[pil]==8.2
+cryptography==50.0.2
+requests==2.34.2
+
+# Reconhecimento facial (CPU / ONNX Runtime)
+insightface==0.7.3
+onnxruntime==1.22.0
+numpy==1.26.4
+opencv-python-headless==4.11.0.86
+pillow==13.0.0
+
+# Testes
+pytest==9.1.1
+httpx==0.28.1

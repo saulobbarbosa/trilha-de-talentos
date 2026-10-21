@@ -7,6 +7,15 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Ambiente Python
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# Ambiente Node
 node_modules
 dist
 dist-ssr
@@ -15,6 +24,28 @@ dist-ssr
 .tanstack/**
 .nitro
 *.local
+
+# Dados locais e segredos
+.env
+data/
+*.db
+*.sqlite3
+data/certs/
+data/insightface/
+data/models/
+imagens_teste/pessoa*/
+!imagens_teste/pessoa*/.gitkeep
+
+# Uploads/fotos de teste
+*.jpg
+*.jpeg
+*.png
+*.webp
+!public/*.png
+!src/assets/*.png
+
+# Certificados emitidos
+data/certificates/
 
 # Wrangler / Cloudflare
 .wrangler/

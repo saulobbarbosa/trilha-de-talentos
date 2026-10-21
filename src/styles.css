@@ -91,8 +91,14 @@
   --chart-3: oklch(0.55 0.15 240);
   --chart-4: oklch(0.8 0.1 186);
   --chart-5: oklch(0.7 0.05 260);
-  --gradient-brand: linear-gradient(135deg, oklch(0.366 0.181 263), oklch(0.45 0.16 240) 55%, oklch(0.69 0.12 186));
-  --shadow-card: 0 1px 2px oklch(0.366 0.181 263 / 6%), 0 8px 24px -12px oklch(0.366 0.181 263 / 18%);
+  --gradient-brand: linear-gradient(
+    135deg,
+    oklch(0.366 0.181 263),
+    oklch(0.45 0.16 240) 55%,
+    oklch(0.69 0.12 186)
+  );
+  --shadow-card:
+    0 1px 2px oklch(0.366 0.181 263 / 6%), 0 8px 24px -12px oklch(0.366 0.181 263 / 18%);
   --sidebar: oklch(0.366 0.181 263);
   --sidebar-foreground: oklch(1 0 0);
   --sidebar-primary: oklch(0.69 0.12 186);
@@ -153,8 +159,23 @@
     border-color: var(--color-border);
   }
 
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
   body {
+    min-height: 100dvh;
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    font-family: inherit;
   }
 }
